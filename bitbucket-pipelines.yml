@@ -1,0 +1,10 @@
+image: node:12
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: 'Lint'
+          script:
+            - yarn
+            - yarn lint
