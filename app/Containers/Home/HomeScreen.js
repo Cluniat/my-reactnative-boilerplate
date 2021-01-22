@@ -1,15 +1,17 @@
-import React, {useContext} from 'react';
+import React, {useCallback} from 'react';
 import {View} from 'react-native';
 import ButtonComponent from '../../Components/Button/ButtonComponent';
-import UserContext from '../../Contexts/UserContext';
 import {useTranslation} from 'react-i18next';
 import useTheme from '../../Theme/ThemeHook';
 import HeaderComponent from '../../Components/Header/HeaderComponent';
+import {useDispatch} from 'react-redux';
+import {logout} from '../../Store/Auth/actions';
 
 const HomeScreen = () => {
   const {Spaces, Alignments, ApplicationStyle, Fonts, changeTheme} = useTheme();
   const {t} = useTranslation();
-  const {logout} = useContext(UserContext);
+  const dispatch = useDispatch();
+  const doLogout = useCallback(() => dispatch(logout()), [dispatch]);
 
   return (
     <View style={[ApplicationStyle.container, Alignments.fillCenter]}>
@@ -18,7 +20,7 @@ const HomeScreen = () => {
         title={t('logout')}
         style={ApplicationStyle.button}
         textStyle={[Fonts.whiteColor, Fonts.boldText]}
-        onPress={logout}
+        onPress={doLogout}
       />
       <View
         style={[
