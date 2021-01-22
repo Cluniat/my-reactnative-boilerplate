@@ -10,19 +10,11 @@ const client = axios.create({
   timeout: 3000,
 });
 
-function login(email, password) {
-  return client
-    .post('/login', {
-      username: email,
-      password: password,
-    })
-    .then((response) => {
-      return {ok: true, data: response.data};
-    })
-    .catch((error) => {
-      return {ok: false, errors: error.response.data.error};
-    });
-}
+const login = ({email, password}) =>
+  client.post('/login', {
+    username: email,
+    password: password,
+  });
 
 export const AuthService = {
   login,

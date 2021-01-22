@@ -1,18 +1,22 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import AppNavigator from './Navigation/AppNavigator';
-import {UserProvider} from './Contexts/UserContext';
 import EnvironmentComponent from './Components/Environment/EnvironmentComponent';
 import {ThemeProvider} from './Theme/ThemeContext';
+import {Provider} from 'react-redux';
+import {store, persistor} from './Store';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const App = () => {
   return (
     <ThemeProvider>
-      <UserProvider>
-        <EnvironmentComponent>
-          <AppNavigator />
-        </EnvironmentComponent>
-      </UserProvider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <EnvironmentComponent>
+            <AppNavigator />
+          </EnvironmentComponent>
+        </PersistGate>
+      </Provider>
     </ThemeProvider>
   );
 };

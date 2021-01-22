@@ -4,19 +4,21 @@ import LogInNavigator from './LoginNavigator';
 import LogoutNavigator from './LogoutNavigator';
 import {StatusBar} from 'react-native';
 import useTheme from '../Theme/ThemeHook';
+import SplashScreen from 'react-native-splash-screen/index';
 import {
   DarkTheme,
   DefaultTheme,
   NavigationContainer,
 } from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
 const AppNavigator = () => {
-  const {token} = useContext(UserContext);
+  const token = useSelector((state) => state.auth.token);
   const {Colors, scheme} = useTheme();
 
   useEffect(() => {
-    // SplashScreen.hide(); // Move this to hide the splash screen only when all data are loaded
-  }, []);
+    SplashScreen.hide(); // Move this to hide the splash screen only when all data are loaded
+  });
 
   return (
     <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
