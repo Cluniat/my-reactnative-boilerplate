@@ -34,9 +34,9 @@ All env variables are described in the `environnements.js` file. For each env yo
 
 Contains components corresponding to screens of the application. They contain all the intelligence of the app and load all data that need to be loaded.
 
-### Contexts
+### Store
 
-Contains all contexts definitions. Contexts are used to share data between components.
+Store Redux permettant une gestion du state global. Ecriture simplifiée grâce à Redux Toolkit. Documentation à venir.
 
 ### Navigation
 
