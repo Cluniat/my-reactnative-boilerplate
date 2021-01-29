@@ -1,5 +1,4 @@
-import React, {useContext, useEffect} from 'react';
-import UserContext from '../Contexts/UserContext';
+import React, {useEffect} from 'react';
 import LogInNavigator from './LoginNavigator';
 import LogoutNavigator from './LogoutNavigator';
 import {StatusBar} from 'react-native';
