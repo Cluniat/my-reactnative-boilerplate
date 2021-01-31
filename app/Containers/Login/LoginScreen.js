@@ -1,14 +1,13 @@
-import React, {useState, useContext, useCallback, useEffect} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import {View} from 'react-native';
-import InputComponent from '../../Components/Input/InputComponent';
-import ButtonComponent from '../../Components/Button/ButtonComponent';
-import HeaderComponent from '../../Components/Header/HeaderComponent';
-import LoginContext, {LoginProvider} from '../../Contexts/LoginContext';
-import UserContext from '../../Contexts/UserContext';
+import InputComponent from '../../Components/Atoms/Input/InputComponent';
+import ButtonComponent from '../../Components/Atoms/Button/ButtonComponent';
+import HeaderComponent from '../../Components/Molecules/Header/HeaderComponent';
 import {useTranslation} from 'react-i18next';
 import useTheme from '../../Theme/ThemeHook';
 import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../../Store/Auth/actions';
+import {displayError} from '../../Utils/displayError';
 
 const LoginScreen = () => {
   const {Alignments, ApplicationStyle, Fonts, Spaces, Colors} = useTheme();
@@ -24,13 +23,20 @@ const LoginScreen = () => {
 
   const [passwordRef, setPasswordRef] = useState(null);
 
-  const {loading} = useSelector((state) => state.auth);
+  const loading = useSelector((state) => state.auth.loading);
+  const error = useSelector((state) => state.auth.error);
   const dispatch = useDispatch();
   const doLogin = useCallback(() => dispatch(login({email, password})), [
     dispatch,
     email,
     password,
   ]);
+
+  useEffect(() => {
+    if (error) {
+      displayError(error?.message, 'errors.login');
+    }
+  }, [error]);
 
   const onSubmit = () => {
     doLogin();

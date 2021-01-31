@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, View, Text} from 'react-native';
-import useTheme from '../../Theme/ThemeHook';
+import useTheme from '../../../Theme/ThemeHook';
 
 const HeaderComponent = (props) => {
   const {Images, Fonts, ApplicationStyle, Alignments} = useTheme();

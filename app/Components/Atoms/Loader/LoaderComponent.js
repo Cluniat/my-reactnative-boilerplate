@@ -1,6 +1,6 @@
 import React from 'react';
 import {ActivityIndicator} from 'react-native';
-import useTheme from '../../Theme/ThemeHook';
+import useTheme from '../../../Theme/ThemeHook';
 
 const LoaderComponent = ({size, color}) => {
   const {Colors} = useTheme();

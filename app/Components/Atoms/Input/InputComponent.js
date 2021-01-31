@@ -1,6 +1,6 @@
 import React from 'react';
 import {TextInput, View, Text} from 'react-native';
-import useTheme from '../../Theme/ThemeHook';
+import useTheme from '../../../Theme/ThemeHook';
 
 const InputComponent = (props) => {
   const {ApplicationStyle, Colors, Fonts, Spaces} = useTheme();

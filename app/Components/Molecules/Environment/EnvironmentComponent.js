@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
-import Config from '../../Config';
-import ButtonComponent from '../Button/ButtonComponent';
-import useTheme from '../../Theme/ThemeHook';
+import Config from '../../../Config';
+import ButtonComponent from '../../Atoms/Button/ButtonComponent';
+import useTheme from '../../../Theme/ThemeHook';
 
 //This components purpose is to show user on which environment is the app that he uses. None of these is visible when app is in production.
 const EnvironmentComponent = ({children}) => {
