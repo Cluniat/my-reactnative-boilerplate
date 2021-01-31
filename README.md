@@ -36,7 +36,9 @@ Contains components corresponding to screens of the application. They contain al
 
 ### Store
 
-Store Redux permettant une gestion du state global. Ecriture simplifiée grâce à Redux Toolkit. Documentation à venir.
+Store Redux to manage global state. Writing simplified by Redux toolkit.
+Everything is described [here](./app/Store/REDUX.md)
+
 
 ### Navigation
 
