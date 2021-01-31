@@ -1,9 +1,9 @@
 import React, {useCallback} from 'react';
 import {View} from 'react-native';
-import ButtonComponent from '../../Components/Button/ButtonComponent';
+import ButtonComponent from '../../Components/Atoms/Button/ButtonComponent';
 import {useTranslation} from 'react-i18next';
 import useTheme from '../../Theme/ThemeHook';
-import HeaderComponent from '../../Components/Header/HeaderComponent';
+import HeaderComponent from '../../Components/Molecules/Header/HeaderComponent';
 import {useDispatch} from 'react-redux';
 import {logout} from '../../Store/Auth/actions';
 

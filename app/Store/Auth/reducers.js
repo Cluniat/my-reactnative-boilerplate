@@ -16,11 +16,11 @@ export const loginSuccess = (state, {payload}) => ({
   error: null,
 });
 
-export const loginFailure = (state, {payload}) => ({
+export const loginFailure = (state, {error}) => ({
   ...state,
   token: null,
   loading: false,
-  error: payload,
+  error: error,
 });
 
 export const logoutSuccess = (state) => ({

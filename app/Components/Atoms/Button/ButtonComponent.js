@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
 import LoaderComponent from '../Loader/LoaderComponent';
-import useTheme from '../../Theme/ThemeHook';
+import useTheme from '../../../Theme/ThemeHook';
 
 const ButtonComponent = (props) => {
   const {Spaces} = useTheme();
